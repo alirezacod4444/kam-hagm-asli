@@ -171,7 +171,7 @@ async def convert_video(video_file, output_directory, total_time, bot, message, 
     r = stderr.decode()
     try:
         if er:
-           await message.edit_text(str(er) + "\n\n**ERROR** Contact @Sensei_Rimuru")
+           await message.edit_text(str(er) + "\n\n**ERROR** Contact @iNsanePlay")
            os.remove(videofile)
            os.remove(out_put_file_name)
            return None
