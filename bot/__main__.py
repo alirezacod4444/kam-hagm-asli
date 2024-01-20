@@ -44,12 +44,12 @@ from bot.plugins.status_message_fn import (
 from bot.commands import Command
 from bot.plugins.call_back_button_handler import button
 sudo_users = "452118981" 
-crf.append("29")
+crf.append("28")
 codec.append("libx264")
 resolution.append("854x480")
 preset.append("veryfast")
 audio_b.append("40k")
-# 🤣
+# 
 
 
 uptime = dt.now()
@@ -159,7 +159,7 @@ if __name__ == "__main__" :
     async def help_message(app, message):
         if message.chat.id not in AUTH_USERS:
             return await message.reply_text("You are not authorised to use this bot contact @iNsanePlay")
-        query = await message.reply_text("ᴀᴅᴅᴇᴅ ᴛᴏ ǫᴜᴇᴜᴇ...\nᴘʟᴇᴀsᴇ ʙᴇ ᴘᴀᴛɪᴇɴᴛ ʏᴏᴜ ᴇɴᴄᴏᴅᴇ ᴡɪʟʟ sᴛᴀʀᴛ sᴏᴏɴ", quote=True)
+        query = await message.reply_text("𝐀ᴅᴅᴇᴅ ᴛʜɪ𝐬 ғɪʟᴇ ɪɴ ǫᴜᴇᴜᴇ...\n𝐂ᴏᴍᴘʀᴇ𝐬𝐬 ᴡɪʟʟ 𝐬ᴛᴀʀᴛ 𝐬ᴏᴏɴ", quote=True)
         data.append(message.reply_to_message)
         if len(data) == 1:
          await query.delete()   
@@ -168,20 +168,20 @@ if __name__ == "__main__" :
     @app.on_message(filters.incoming & filters.command(["restart", f"restart@{BOT_USERNAME}"]))
     async def restarter(app, message):
         if message.from_user.id in AUTH_USERS:
-            await message.reply_text("ʀᴇsᴛᴀʀᴛɪɴɢ ᴛʜᴇ ʙᴏᴛ")
+            await message.reply_text("• 𝐑𝐞𝐬𝐭𝐚𝐫𝐭𝐢𝐧𝐠")
             quit(1)
         
     @app.on_message(filters.incoming & filters.command(["clear", f"clear@{BOT_USERNAME}"]))
     async def restarter(app, message):
       data.clear()
-      await message.reply_text("✅ Successfully cleared Queue ...")
+      await message.reply_text("• 𝐂𝐥𝐞𝐚𝐫𝐞𝐝")
          
         
     @app.on_message(filters.incoming & (filters.video | filters.document))
     async def help_message(app, message):
         if message.chat.id not in AUTH_USERS:
-            return await message.reply_text("You are not authorised to use this bot contact @TheBatmanShan")
-        query = await message.reply_text("ᴀᴅᴅᴇᴅ ᴛᴏ ǫᴜᴇᴜᴇ...\nᴘʟᴇᴀsᴇ ʙᴇ ᴘᴀᴛɪᴇɴᴛ ʏᴏᴜ ᴇɴᴄᴏᴅᴇ ᴡɪʟʟ sᴛᴀʀᴛ sᴏᴏɴ", quote=True)
+            return await message.reply_text("You are not authorised to use this bot contact @iNsanePlay")
+        query = await message.reply_text("𝐀ᴅᴅᴇᴅ ᴛʜɪ𝐬 ғɪʟᴇ ɪɴ ǫᴜᴇᴜᴇ...\n𝐂ᴏᴍᴘʀᴇ𝐬𝐬 ᴡɪʟʟ 𝐬ᴛᴀʀᴛ 𝐬ᴏᴏɴ", quote=True)
         data.append(message)
         if len(data) == 1:
          await query.delete()   
@@ -190,7 +190,7 @@ if __name__ == "__main__" :
     @app.on_message(filters.incoming & (filters.photo))
     async def help_message(app, message):
         if message.chat.id not in AUTH_USERS:
-            return await message.reply_text("You are not authorised to use this bot contact @NINJA_NARUTO_SAK_2")
+            return await message.reply_text("You are not authorised to use this bot contact @iNsanePlay")
         os.system('rm thumb.jpg')
         await message.download(file_name='/app/thumb.jpg')
         await message.reply_text('Thumbnail Added')
