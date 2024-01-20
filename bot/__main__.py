@@ -214,7 +214,7 @@ if __name__ == "__main__" :
    
     @app.on_message(filters.incoming & filters.command(["help", f"help@{BOT_USERNAME}"]))
     async def help_message(app, message):
-        await message.reply_text("Hi, I am <b>Video Encoder bot</b>\n\n➥ Send me your telegram files\n➥ I will encode them one by one as I have <b>queue feature</b>\n➥ Just send me the jpg/pic and it will be set as your custom thumbnail \n➥ For ffmpeg lovers - u can change crf by /eval crf.insert(0, 'crf value')\n➥ Contact ☆ @Sensei_Rimuru \n\n🏷<b>Maintained By : @Anime_Sensei_Network</b>", quote=True)
+        await message.reply_text("➥ 𝐎𝐰𝐧𝐞𝐫 : @iNsanePlay 👑 </b>", quote=True)
   
     @app.on_message(filters.incoming & filters.command(["log", f"log@{BOT_USERNAME}"]))
     async def help_message(app, message):
@@ -225,7 +225,7 @@ if __name__ == "__main__" :
       ed = dt.now()
       v = ts(int((ed - uptime).seconds) * 1000)
       ms = (ed - stt).microseconds / 1000
-      p = f"🌋Pɪɴɢ = {ms}ms"
+      p = f"✨𝐏𝐢𝐧𝐠 = {ms}ms"
       await message.reply_text(v + "\n" + p)
 
     call_back_button_handler = CallbackQueryHandler(
