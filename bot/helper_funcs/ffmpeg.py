@@ -71,7 +71,7 @@ async def convert_video(video_file, output_directory, total_time, bot, message, 
     if resolution[0] == "1920x1080":
         kk = re.sub(r'(HDRip)', '1080p', kk)
     
-    out_put_file_name = kk.replace(f".{aa}", "[@SuperXCompressBOT].MKV")
+    out_put_file_name = kk.replace(f".{aa}", "[@SuperXCompressBOT].MP4")
     
     #out_put_file_name = video_file + "_compressed" + ".mkv"
     progress = output_directory + "/" + "progress.txt"
@@ -141,12 +141,12 @@ async def convert_video(video_file, output_directory, total_time, bot, message, 
         if difference > 0:
           ETA = TimeFormatter(difference*1000)
         percentage = math.floor(elapsed_time * 100 / total_time)
-        progress_str = "• 𝐏𝐞𝐫𝐜𝐞𝐧𝐭𝐚𝐠𝐞 ➜</b> {0}%\n➖➖➖➖➖➖➖➖➖➖➖➖➖\n".format(
+        progress_str = "• 𝐏𝐞𝐫𝐜𝐞𝐧𝐭𝐚𝐠𝐞 ➜</b> {0}%[{1}{2}]\n➖➖➖➖➖➖➖➖➖➖➖➖➖\n".format(
             round(percentage, 2),
             ''.join([FINISHED_PROGRESS_STR for i in range(math.floor(percentage / 10))]),
             ''.join([UN_FINISHED_PROGRESS_STR for i in range(10 - math.floor(percentage / 10))])
             )
-        stats = f'••• 𝐂𝐎𝐌𝐏𝐑𝐄𝐒𝐒𝐈𝐍𝐆 •••\n[{1}{2}]</b>\n\n\n' \
+        stats = f'••• 𝐂𝐎𝐌𝐏𝐑𝐄𝐒𝐒𝐈𝐍𝐆 •••\n\n\n' \
                 f'•𝐓𝐢𝐦𝐞 𝐋𝐞𝐟𝐭 ➜</b> {ETA}\n➖➖➖➖➖➖➖➖➖➖➖➖➖\n' \
                 f'{progress_str}\n'
         try:
@@ -155,7 +155,7 @@ async def convert_video(video_file, output_directory, total_time, bot, message, 
             reply_markup=InlineKeyboardMarkup(
                 [
                     [ 
-                        InlineKeyboardButton('❌ Cancel ❌', callback_data='fuckingdo') # Nice Call 🤭
+                        InlineKeyboardButton('❄️ 𝐂𝐀𝐍𝐂𝐋𝐄 ❄️', callback_data='fuckingdo') # Nice Call 🤭
                     ]
                 ]
             )
@@ -171,7 +171,7 @@ async def convert_video(video_file, output_directory, total_time, bot, message, 
     r = stderr.decode()
     try:
         if er:
-           await message.edit_text(str(er) + "\n\n**ERROR** Contact @Sensei_Rimuru")
+           await message.edit_text(str(er) + "\n\n**ERROR** Contact @iNsanePlay")
            os.remove(videofile)
            os.remove(out_put_file_name)
            return None
