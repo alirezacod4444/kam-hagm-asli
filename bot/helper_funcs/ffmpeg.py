@@ -80,14 +80,14 @@ async def convert_video(video_file, output_directory, total_time, bot, message, 
     ##  -metadata title='DarkEncodes [Join t.me/AnimesInLowSize]' -vf drawtext=fontfile=Italic.ttf:fontsize=20:fontcolor=black:x=15:y=15:text='Dark Encodes'
     ##"-metadata", "title=@SenpaiAF", "-vf", "drawtext=fontfile=njnaruto.ttf:fontsize=20:fontcolor=black:x=15:y=15:text=" "Dark Encodes",
      ## -vf eq=gamma=1.4:saturation=1.4
-     ## watermark.append('-vf "drawtext=fontfile=font.ttf:fontsize=27:fontcolor=white:bordercolor=black@0.50:x=w-tw-10:y=10:box=1:boxcolor=black@0.5:boxborderw=6:text=Anime Compass"')
+    ## watermark.append('-vf "drawtext=fontfile=font.ttf:fontsize=27:fontcolor=white:bordercolor=black@0.50:x=w-tw-10:y=10:box=1:boxcolor=black@0.5:boxborderw=6:text=Anime Compass"')
      ## lol 😂
     crf.append("28")
     codec.append("libx264")
     resolution.append("854x480")
     preset.append("veryfast")
     audio_b.append("40k")
-    file_genertor_command = f"ffmpeg -hide_banner -loglevel quiet -progress '{progress}' -i '{video_file}' -metadata 'title=Encoded by @SuperXCompressBOT' -c:v {codec[0]}  -map 0 -crf {crf[0]} -c:s copy -pix_fmt yuv420p -s {resolution[0]} -b:v 150k -c:a libopus -b:a {audio_b[0]} -preset {preset[0]} -metadata:s:a 'title=@iNsanePlay' -metadata:s:s 'title=@SuperXCompressBOT' '{out_put_file_name}' -y"
+    file_genertor_command = f"ffmpeg -hide_banner -loglevel quiet -progress '{progress}' -i '{video_file}' -metadata 'title=Encoded by SuperXCompressBOT' -c:v {codec[0]}  -map 0 -crf {crf[0]} -c:s copy -pix_fmt yuv420p -s {resolution[0]} -b:v 150k -c:a libopus -b:a {audio_b[0]} -preset {preset[0]} -metadata:s:a 'title=@SuperXCompressBOT' -metadata:s:s 'title=@iNsanePlay' '{out_put_file_name}' -y"
  #Done !!
     COMPRESSION_START_TIME = time.time()
     process = await asyncio.create_subprocess_shell(
@@ -141,13 +141,13 @@ async def convert_video(video_file, output_directory, total_time, bot, message, 
         if difference > 0:
           ETA = TimeFormatter(difference*1000)
         percentage = math.floor(elapsed_time * 100 / total_time)
-        progress_str = "• 𝐏𝐞𝐫𝐜𝐞𝐧𝐭𝐚𝐠𝐞 ➜</b> {0}%[{1}{2}]\n➖➖➖➖➖➖➖➖➖➖➖➖➖\n".format(
+        progress_str = "♻️<b>ᴘʀᴏɢʀᴇss:</b> {0}%\n[{1}{2}]".format(
             round(percentage, 2),
             ''.join([FINISHED_PROGRESS_STR for i in range(math.floor(percentage / 10))]),
             ''.join([UN_FINISHED_PROGRESS_STR for i in range(10 - math.floor(percentage / 10))])
             )
-        stats = f'••• 𝐂𝐎𝐌𝐏𝐑𝐄𝐒𝐒𝐈𝐍𝐆 •••\n\n\n' \
-                f'• 𝐓𝐢𝐦𝐞 𝐋𝐞𝐟𝐭 ➜</b> {ETA}\n➖➖➖➖➖➖➖➖➖➖➖➖➖\n' \
+        stats = f'⚡ <b>ᴇɴᴄᴏᴅɪɴɢ ɪɴ ᴘʀᴏɢʀᴇss</b>\n\n' \
+                f'🕛 <b>ᴛɪᴍᴇ ʟᴇғᴛ:</b> {ETA}\n\n' \
                 f'{progress_str}\n'
         try:
           await message.edit_text(
