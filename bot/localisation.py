@@ -33,9 +33,9 @@ class Localisation:
     
     FF_MPEG_DEL_ETED_CUSTOM_MEDIA = "Media cleared succesfully."
     
-    SAVED_RECVD_DOC_FILE = "Downloaded Successfully."
+    SAVED_RECVD_DOC_FILE = "••••••••••••••"
     
-    CUSTOM_CAPTION_UL_FILE = " "
+    CUSTOM_CAPTION_UL_FILE = ""
     
     NO_CUSTOM_THUMB_NAIL_FOUND = "No Custom ThumbNail found."
     
