@@ -71,7 +71,7 @@ async def convert_video(video_file, output_directory, total_time, bot, message, 
     if resolution[0] == "1920x1080":
         kk = re.sub(r'(HDRip)', '1080p', kk)
     
-    out_put_file_name = kk.replace(f".{aa}", "[@SuperXCompressBOT].MP4")
+    out_put_file_name = kk.replace(f".{aa}", "[@SuperXCompressBOT].MKV")
     
     #out_put_file_name = video_file + "_compressed" + ".mkv"
     progress = output_directory + "/" + "progress.txt"
@@ -147,7 +147,7 @@ async def convert_video(video_file, output_directory, total_time, bot, message, 
             ''.join([UN_FINISHED_PROGRESS_STR for i in range(10 - math.floor(percentage / 10))])
             )
         stats = f'••• 𝐂𝐎𝐌𝐏𝐑𝐄𝐒𝐒𝐈𝐍𝐆 •••\n\n\n' \
-                f'•𝐓𝐢𝐦𝐞 𝐋𝐞𝐟𝐭 ➜</b> {ETA}\n➖➖➖➖➖➖➖➖➖➖➖➖➖\n' \
+                f'• 𝐓𝐢𝐦𝐞 𝐋𝐞𝐟𝐭 ➜</b> {ETA}\n➖➖➖➖➖➖➖➖➖➖➖➖➖\n' \
                 f'{progress_str}\n'
         try:
           await message.edit_text(
