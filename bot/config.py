@@ -1,4 +1,5 @@
 from bot.get_cfg import get_config
+
 class Config(object):
     # You can keep this default
     SESSION_NAME = get_config("SESSION_NAME", "AHCompressorBot")
@@ -15,9 +16,7 @@ class Config(object):
             should_prompt=True
         ).split()
     )
-# array , simplest method was AUTH_USERS = [] ; AUTH_USERS.append(your telegram id) 🤣
-    # array to store the channel ID who are authorized to use the bot
-    # dont u fucking remove this id 😤
+
     TG_BOT_TOKEN = get_config("TG_BOT_TOKEN", "")
     # the download location, where the HTTP Server runs
     DOWNLOAD_LOCATION = get_config("DOWNLOAD_LOCATION", "/app/downloads")
@@ -37,5 +36,4 @@ class Config(object):
     FINISHED_PROGRESS_STR = get_config("FINISHED_PROGRESS_STR", "●")
     UN_FINISHED_PROGRESS_STR = get_config("UN_FINISHED_PROGRESS_STR", "○")
     LOG_FILE_ZZGEVC = get_config("LOG_FILE_ZZGEVC", "Log.txt")
-      # because, https://t.me/c/1494623325/5603
     SHOULD_USE_BUTTONS = get_config("SHOULD_USE_BUTTONS", True)
