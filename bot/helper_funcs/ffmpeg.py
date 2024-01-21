@@ -33,10 +33,46 @@ from bot import (
 )
 
 async def convert_video(video_file, output_directory, total_time, bot, message, chan_msg):
-    # https://stackoverflow.com/a/13891070/4723940
     kk = video_file.split("/")[-1]
     aa = kk.split(".")[-1]
-    out_put_file_name = kk.replace(f".{aa}", "[ENCODED].mkv")
+    
+    if '@' in kk:
+        kk = re.sub(r'@.*?(?=\.)', '', kk)
+    
+    if kk.startswith('[') and ']' in kk:
+        kk = kk[kk.find(']') + 1:]
+    
+    season_match = re.search(r'S(\d+)', kk)
+    episode_match = re.search(r'E(\d+)', kk)
+    
+    season_number = season_match.group(1) if season_match else ''
+    episode_number = episode_match.group(1) if episode_match else ''
+    
+    kk = re.sub(r'S\d+', '', kk)
+    kk = re.sub(r'E\d+', '', kk)
+    
+    if not season_number and episode_number:
+        kk = f'E{episode_number}' + kk
+        
+    elif not season_number and not episode_number and re.search(r'\d+', kk):
+        number_match = re.search(r'\d+', kk)
+        number = number_match.group(0)
+        kk = f'{number} ' + kk.replace(number, '', 1)
+    
+    elif season_number or episode_number:
+        kk = f'S{season_number}E{episode_number}' + kk
+
+    if resolution[0] == "854x480":
+        kk = re.sub(r'(720p|1080p|HDRip)', '480p', kk)
+
+    if resolution[0] == "1280x720":
+        kk = re.sub(r'(1080p|HDRip)', '720p', kk)
+       
+    if resolution[0] == "1920x1080":
+        kk = re.sub(r'(HDRip)', '1080p', kk)
+    
+    out_put_file_name = kk.replace(f".{aa}", "[@SuperXCompressBOT].mkv")
+    
     #out_put_file_name = video_file + "_compressed" + ".mkv"
     progress = output_directory + "/" + "progress.txt"
     with open(progress, 'w') as f:
@@ -44,13 +80,13 @@ async def convert_video(video_file, output_directory, total_time, bot, message, 
     ##  -metadata title='DarkEncodes [Join t.me/AnimesInLowSize]' -vf drawtext=fontfile=Italic.ttf:fontsize=20:fontcolor=black:x=15:y=15:text='Dark Encodes'
     ##"-metadata", "title=@SenpaiAF", "-vf", "drawtext=fontfile=njnaruto.ttf:fontsize=20:fontcolor=black:x=15:y=15:text=" "Dark Encodes",
      ## -vf eq=gamma=1.4:saturation=1.4
+     ## watermark.append('-vf "drawtext=fontfile=font.ttf:fontsize=27:fontcolor=white:bordercolor=black@0.50:x=w-tw-10:y=10:box=1:boxcolor=black@0.5:boxborderw=6:text=Anime Compass"')
      ## lol 😂
     crf.append("28")
     codec.append("libx264")
     resolution.append("854x480")
     preset.append("veryfast")
-    audio_b.append("35k")
-    watermark.append('-vf "drawtext=fontfile=font.ttf:fontsize=27:fontcolor=white:bordercolor=black@0.50:x=w-tw-10:y=10:box=1:boxcolor=black@0.5:boxborderw=6:text=@Anime_Sensei"')
+    audio_b.append("40k")
     file_genertor_command = f'ffmpeg -hide_banner -loglevel quiet -progress "{progress}" -i "{video_file}" {watermark[0]}  -c:v {codec[0]}  -map 0 -crf {crf[0]} -c:s copy -pix_fmt yuv420p -s {resolution[0]} -b:v 150k -c:a libopus -b:a {audio_b[0]} -preset {preset[0]}  "{out_put_file_name}" -y'
  #Done !!
     COMPRESSION_START_TIME = time.time()
@@ -105,13 +141,13 @@ async def convert_video(video_file, output_directory, total_time, bot, message, 
         if difference > 0:
           ETA = TimeFormatter(difference*1000)
         percentage = math.floor(elapsed_time * 100 / total_time)
-        progress_str = "📈 <b>Progress:</b> {0}%\n[{1}{2}]".format(
+        progress_str = "• 𝐏𝐞𝐫𝐜𝐞𝐧𝐭𝐚𝐠𝐞 ➜</b> {0}%\n[{1}{2}]".format(
             round(percentage, 2),
             ''.join([FINISHED_PROGRESS_STR for i in range(math.floor(percentage / 10))]),
             ''.join([UN_FINISHED_PROGRESS_STR for i in range(10 - math.floor(percentage / 10))])
             )
-        stats = f'🗳 <b>ENCODING IN PROGRESS</b>\n\n' \
-                f'⌚ <b>TIME LEFT:</b> {ETA}\n\n' \
+        stats = f'••• 𝐂𝐎𝐌𝐏𝐑𝐄𝐒𝐒𝐈𝐍𝐆 •••</b>\n\n\n' \
+                f'• 𝐓𝐢𝐦𝐞 𝐋𝐞𝐟𝐭 ➜</b> {ETA}\n➖➖➖➖➖➖➖➖➖➖➖➖➖\n' \
                 f'{progress_str}\n'
         try:
           await message.edit_text(
@@ -119,7 +155,7 @@ async def convert_video(video_file, output_directory, total_time, bot, message, 
             reply_markup=InlineKeyboardMarkup(
                 [
                     [ 
-                        InlineKeyboardButton('❌ Cancel ❌', callback_data='fuckingdo') # Nice Call 🤭
+                        InlineKeyboardButton('❄️ 𝐂𝐀𝐍𝐂𝐋𝐄 ❄️', callback_data='fuckingdo') # Nice Call 🤭
                     ]
                 ]
             )
@@ -135,7 +171,7 @@ async def convert_video(video_file, output_directory, total_time, bot, message, 
     r = stderr.decode()
     try:
         if er:
-           await message.edit_text(str(er) + "\n\n**ERROR** Contact @Zenitsu_AF")
+           await message.edit_text(str(er) + "\n\n**ERROR** Contact @iNsanePlay")
            os.remove(videofile)
            os.remove(out_put_file_name)
            return None
