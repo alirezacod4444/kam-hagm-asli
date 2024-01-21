@@ -35,7 +35,7 @@ class Localisation:
     
     SAVED_RECVD_DOC_FILE = "••••••••••••••"
     
-    CUSTOM_CAPTION_UL_FILE = " "
+    CUSTOM_CAPTION_UL_FILE = ""
     
     NO_CUSTOM_THUMB_NAIL_FOUND = "No Custom ThumbNail found."
     
