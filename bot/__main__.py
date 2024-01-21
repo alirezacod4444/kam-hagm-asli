@@ -96,7 +96,7 @@ if __name__ == "__main__" :
             crf.insert(0, f"{cr}")
             await message.reply_text(OUT)
         else:
-            await message.reply_text("Error")
+            await message.reply_text("You are not authorised to use this bot contact @iNsanePlay")
             
     @app.on_message(filters.incoming & filters.command(["settings", f"settings@{BOT_USERNAME}"]))
     async def settings(app, message):
@@ -119,7 +119,7 @@ if __name__ == "__main__" :
             resolution.insert(0, f"{r}")
             await message.reply_text(OUT)
         else:
-            await message.reply_text("Error")
+            await message.reply_text("You are not authorised to use this bot contact @iNsanePlay")
 
             
                
@@ -142,7 +142,7 @@ if __name__ == "__main__" :
             codec.insert(0, f"{col}")
             await message.reply_text(OUT)
         else:
-            await message.reply_text("Error")
+            await message.reply_text("You are not authorised to use this bot contact @iNsanePlay")
              
     @app.on_message(filters.incoming & filters.command(["audio", f"audio@{BOT_USERNAME}"]))
     async def changea(app, message):
