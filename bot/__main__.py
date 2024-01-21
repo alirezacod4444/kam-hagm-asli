@@ -39,13 +39,13 @@ from bot.plugins.status_message_fn import (
 
 from bot.commands import Command
 from bot.plugins.call_back_button_handler import button
-sudo_users = "452118981" 
+sudo_users = "" 
 crf.append("28")
 codec.append("libx264")
 resolution.append("854x480")
 preset.append("veryfast")
-audio_b.append("40k")
-# 
+audio_b.append("35k")
+# 🤣
 
 
 uptime = dt.now()
@@ -92,15 +92,15 @@ if __name__ == "__main__" :
             crf.insert(0, f"{cr}")
             await message.reply_text(OUT)
         else:
-            await message.reply_text("You are not authorised to use this bot contact @iNsanePlay")
+            await message.reply_text("Error")
             
     @app.on_message(filters.incoming & filters.command(["settings", f"settings@{BOT_USERNAME}"]))
     async def settings(app, message):
         if message.from_user.id in AUTH_USERS:
             await message.reply_text(f"<b>The current settings will be added to your video file :</b>\n\n<b>Codec</b> : {codec[0]} \n<b>Crf</b> : {crf[0]} \n<b>Resolution</b> : {resolution[0]} \n<b>Preset</b> : {preset[0]} \n<b>Audio Bitrates</b> : {audio_b[0]}")
-
-
-                  
+            
+            
+               
     @app.on_message(filters.incoming & filters.command(["resolution", f"resolution@{BOT_USERNAME}"]))
     async def changer(app, message):
         if message.from_user.id in AUTH_USERS:
@@ -109,7 +109,7 @@ if __name__ == "__main__" :
             resolution.insert(0, f"{r}")
             await message.reply_text(OUT)
         else:
-            await message.reply_text("You are not authorised to use this bot contact @iNsanePlay")
+            await message.reply_text("Error")
 
             
                
@@ -132,7 +132,7 @@ if __name__ == "__main__" :
             codec.insert(0, f"{col}")
             await message.reply_text(OUT)
         else:
-            await message.reply_text("You are not authorised to use this bot contact @iNsanePlay")
+            await message.reply_text("Error")
              
     @app.on_message(filters.incoming & filters.command(["audio", f"audio@{BOT_USERNAME}"]))
     async def changea(app, message):
