@@ -44,13 +44,13 @@ async def convert_video(video_file, output_directory, total_time, bot, message, 
     ##  -metadata title='DarkEncodes [Join t.me/AnimesInLowSize]' -vf drawtext=fontfile=Italic.ttf:fontsize=20:fontcolor=black:x=15:y=15:text='Dark Encodes'
     ##"-metadata", "title=@SenpaiAF", "-vf", "drawtext=fontfile=njnaruto.ttf:fontsize=20:fontcolor=black:x=15:y=15:text=" "Dark Encodes",
      ## -vf eq=gamma=1.4:saturation=1.4
-     ## watermark.append('-vf "drawtext=fontfile=font.ttf:fontsize=27:fontcolor=white:bordercolor=black@0.50:x=w-tw-10:y=10:box=1:boxcolor=black@0.5:boxborderw=6:text=Anime Compass"')
      ## lol 😂
     crf.append("28")
     codec.append("libx264")
     resolution.append("854x480")
     preset.append("veryfast")
     audio_b.append("40k")
+    watermark.append('-vf "drawtext=fontfile=font.ttf:fontsize=27:fontcolor=white:bordercolor=black@0.50:x=w-tw-10:y=10:box=1:boxcolor=black@0.5:boxborderw=6:text=@Anime_Sensei"')
     file_genertor_command = f'ffmpeg -hide_banner -loglevel quiet -progress "{progress}" -i "{video_file}" {watermark[0]}  -c:v {codec[0]}  -map 0 -crf {crf[0]} -c:s copy -pix_fmt yuv420p -s {resolution[0]} -b:v 150k -c:a libopus -b:a {audio_b[0]} -preset {preset[0]}  "{out_put_file_name}" -y'
  #Done !!
     COMPRESSION_START_TIME = time.time()
@@ -105,13 +105,13 @@ async def convert_video(video_file, output_directory, total_time, bot, message, 
         if difference > 0:
           ETA = TimeFormatter(difference*1000)
         percentage = math.floor(elapsed_time * 100 / total_time)
-        progress_str = "• 𝐏𝐞𝐫𝐜𝐞𝐧𝐭𝐚𝐠𝐞 ➜</b> {0}%\n[{1}{2}]".format(
+        progress_str = "📈 <b>Progress:</b> {0}%\n[{1}{2}]".format(
             round(percentage, 2),
             ''.join([FINISHED_PROGRESS_STR for i in range(math.floor(percentage / 10))]),
             ''.join([UN_FINISHED_PROGRESS_STR for i in range(10 - math.floor(percentage / 10))])
             )
-        stats = f'••• 𝐂𝐎𝐌𝐏𝐑𝐄𝐒𝐒𝐈𝐍𝐆 •••</b>\n\n\n' \
-                f'• 𝐓𝐢𝐦𝐞 𝐋𝐞𝐟𝐭 ➜</b> {ETA}\n➖➖➖➖➖➖➖➖➖➖➖➖➖\n' \
+        stats = f'🗳 <b>ENCODING IN PROGRESS</b>\n\n' \
+                f'⌚ <b>TIME LEFT:</b> {ETA}\n\n' \
                 f'{progress_str}\n'
         try:
           await message.edit_text(
@@ -119,12 +119,27 @@ async def convert_video(video_file, output_directory, total_time, bot, message, 
             reply_markup=InlineKeyboardMarkup(
                 [
                     [ 
-                        InlineKeyboardButton('❄️ 𝐂𝐀𝐍𝐂𝐋𝐄 ❄️', callback_data='fuckingdo') # Nice Call 🤭
+                        InlineKeyboardButton('❌ Cancel ❌', callback_data='fuckingdo') # Nice Call 🤭
                     ]
                 ]
             )
           )
-          except BaseException:
+        except:
+            pass
+        try:
+          await bug.edit_text(text=stats)
+        except:
+          pass
+        
+    stdout, stderr = await process.communicate()
+    r = stderr.decode()
+    try:
+        if er:
+           await message.edit_text(str(er) + "\n\n**ERROR** Contact @Zenitsu_AF")
+           os.remove(videofile)
+           os.remove(out_put_file_name)
+           return None
+    except BaseException:
             pass
     #if( not isDone):
       #return None
