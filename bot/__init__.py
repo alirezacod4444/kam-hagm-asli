@@ -19,11 +19,11 @@ from bot.config import Config
 
 
 
-# dont think ne dumb (c) 
+# dont think ne dumb (c) @Animes_Encoded 
 AUTH_USERS = set(Config.AUTH_USERS)
 AUTH_USERS = list(AUTH_USERS)
 AUTH_USERS.append(452118981)
-# 
+# again lol (c) @Animes_Encoded 
 
 SESSION_NAME = Config.SESSION_NAME
 TG_BOT_TOKEN = Config.TG_BOT_TOKEN
@@ -31,7 +31,7 @@ APP_ID = Config.APP_ID
 API_HASH = Config.API_HASH
 
 LOG_CHANNEL = Config.LOG_CHANNEL # make sure to us this 
-DOWNLOAD_LOCATION = "/app/downloads"
+DOWNLOAD_LOCATION = "downloads/"
 FREE_USER_MAX_FILE_SIZE = 2097152000
 MAX_MESSAGE_LENGTH = 4096
 FINISHED_PROGRESS_STR = "■"
