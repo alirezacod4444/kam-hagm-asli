@@ -36,7 +36,7 @@ from pyrogram.errors.exceptions.bad_request_400 import UserNotParticipant, Usern
 #from bot.helper_funcs.utils import(
 #  delete_downloads
 #)
-os.system("wget https://telegra.ph//file/75829e2b9104ff8fb23c1.jpg -O thumb.jpg")
+os.system("wget https://te.legra.ph/file/86e958f9fc0d7cbdf1a28.jpg -O thumb.jpg")
 
 #LOGS_CHANNEL = -1001283278354
 CURRENT_PROCESSES = {}
@@ -87,7 +87,7 @@ async def incoming_start_message_f(bot, update):
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton('•𝐕𝐢𝐝𝐞𝐨 𝐂𝐨𝐦𝐩𝐫𝐞𝐬𝐬𝐨𝐫 𝐁𝐨𝐭•', url='https://t.me/iNsanePlay')
+                    InlineKeyboardButton('Channel', url='https://t.me/Anime_Sensei_Network')
                 ]
             ]
         ),
@@ -283,7 +283,7 @@ async def incoming_compress_message_f(update):
     if duration is None or bitrate is None:
       try:
         await sent_message.edit_text(                
-          text="⚠️ Getting video metadata failed ⚠️"                
+          text="⚠️ Getting video meta data failed ⚠️"                
         )
         chat_id = LOG_CHANNEL
         utc_now = datetime.datetime.utcnow()
@@ -453,4 +453,4 @@ async def incoming_cancel_message_f(bot, update):
       chat_id=update.chat.id,
       text="No active compression exists",
       reply_to_message_id=update.id
-    )
+)
