@@ -36,7 +36,7 @@ from pyrogram.errors.exceptions.bad_request_400 import UserNotParticipant, Usern
 #from bot.helper_funcs.utils import(
 #  delete_downloads
 #)
-os.system("wget https://te.legra.ph/file/86e958f9fc0d7cbdf1a28.jpg -O thumb.jpg")
+os.system("wget https://telegra.ph//file/75829e2b9104ff8fb23c1.jpg -O thumb.jpg")
 
 #LOGS_CHANNEL = -1001283278354
 CURRENT_PROCESSES = {}
