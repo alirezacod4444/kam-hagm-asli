@@ -87,7 +87,7 @@ async def incoming_start_message_f(bot, update):
         reply_markup=InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton('Channel', url='https://t.me/Anime_Sensei_Network')
+                    InlineKeyboardButton('•𝐕𝐢𝐝𝐞𝐨 𝐂𝐨𝐦𝐩𝐫𝐞𝐬𝐬𝐨𝐫 𝐁𝐨𝐭•', url='https://t.me/iNsanePlay')
                 ]
             ]
         ),
