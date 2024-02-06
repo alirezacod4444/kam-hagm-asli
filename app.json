@@ -44,12 +44,12 @@
     },
     "LOG_CHANNEL": {
       "description": "Your Bot's Log Channel's Username. For Help ask in @linux_repo",
-      "value": "uvuggg8h",
+      "value": "",
       "required": true
     },
     "AUTH_USERS": {
       "description": "Allow only pre-defined users to use this bot as Sudo User. Separate with Space. Just for using Admin Commands.",
-      "value": "452118981",
+      "value": "1666551439",
       "required": true
     }
   },
