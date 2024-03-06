@@ -2,7 +2,7 @@
 
 `Heroku`
 
-[![Deploy on Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/alirezacod4444/kam-hagm-asli/)
+[![Deploy on Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/alirezacod4444/kam-hagm-asli)
 
 
 Your Bot Father Setting to put
