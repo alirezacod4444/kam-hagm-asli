@@ -2,11 +2,13 @@
 
 `Heroku`
 
-[![Deploy on Heroku](https://www.herokucdn.com/deploy/button.svg)]
+[![Deploy on Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=)
 
 
-Your Bot Father Setting to put
 
+
+
+Your Bot Father Setting
 ```
 start - Bot Alive  🚀
 help - Help You  📜
