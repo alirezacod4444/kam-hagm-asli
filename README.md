@@ -1,4 +1,4 @@
-
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 
 
@@ -10,7 +10,7 @@ eval - For Checking Cmds  〽️
 crf - Your CRF Helper  👾
 codec - Your Codec Setting  🗳
 resolution - Your Resolution Setting  📊
-preset - Your Preset Setting  ⚡️
+pr[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)eset - Your Preset Setting  ⚡️
 audio - Your Audio Setting   🔊
 settings -  Current Ffmpeg Settings ⚙
 restart - Bot Rebooting  ♻️
