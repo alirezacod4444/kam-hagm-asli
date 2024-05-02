@@ -1,6 +1,6 @@
 # oof
 from datetime import datetime as dt
-import os
+import os, asyncio, pyrogram, psutil, platform
 from bot import (
     APP_ID,
     API_HASH,
@@ -20,9 +20,11 @@ from bot import (
     codec,
     watermark 
 )
-from bot.helper_funcs.utils import add_task, on_task_complete
-from pyrogram import Client, filters
+from bot.helper_funcs.utils import add_task, on_task_complete, sysinfo
+from pyrogram import Client, filters, enums
 from pyrogram.handlers import MessageHandler, CallbackQueryHandler
+from pyrogram.types import Message
+from psutil import disk_usage, cpu_percent, virtual_memory, Process as psprocess
 
 from bot.plugins.incoming_message_fn import (
     incoming_start_message_f,
@@ -39,14 +41,13 @@ from bot.plugins.status_message_fn import (
 
 from bot.commands import Command
 from bot.plugins.call_back_button_handler import button
-sudo_users = "-1002012906441" 
+sudo_users = "452118981 -1002012906441" 
 crf.append("30")
 codec.append("libx264")
-resolution.append("854x480")
+resolution.append("854x480 ")
 preset.append("veryfast")
 audio_b.append("32k")
 # 🤣
-
 
 uptime = dt.now()
 
@@ -73,6 +74,7 @@ if __name__ == "__main__" :
     
     
     #
+    app.set_parse_mode(enums.ParseMode.MARKDOWN)
     #
     # STATUS ADMIN Command
 
@@ -92,14 +94,21 @@ if __name__ == "__main__" :
             crf.insert(0, f"{cr}")
             await message.reply_text(OUT)
         else:
-            await message.reply_text("Error")
+            await message.reply_text("Admin Only 🔒")
             
     @app.on_message(filters.incoming & filters.command(["settings", f"settings@{BOT_USERNAME}"]))
     async def settings(app, message):
         if message.from_user.id in AUTH_USERS:
-            await message.reply_text(f"<b>The current settings will be added to your video file :</b>\n\n<b>Codec</b> : {codec[0]} \n<b>Crf</b> : {crf[0]} \n<b>Resolution</b> : {resolution[0]} \n<b>Preset</b> : {preset[0]} \n<b>Audio Bitrates</b> : {audio_b[0]}")
-            
-            
+            await message.reply_text(f"<b>The current settings will be added to your video file ⚙️:</b>\n\n<b>➥ Codec</b> : {codec[0]} \n<b>➥ Crf</b> : {crf[0]} \n<b>➥ Resolution</b> : {resolution[0]} \n<b>➥ Preset</b> : {preset[0]} \n<b>➥ Audio Bitrates</b> : {audio_b[0]} \n\n<i><b>🥇 The ability to change Settings is only for Admin</b></i>")
+        else:
+            await message.reply_text("Admin Only 🔒")
+
+    @app.on_message(filters.incoming & filters.command(["sysinfo", f"sysinfo@{BOT_USERNAME}"]))
+    async def help_message(app, message):
+       if message.from_user.id in AUTH_USERS:
+           await sysinfo(message)
+       else:
+           await message.reply_text("Admin Only 🔒")
                
     @app.on_message(filters.incoming & filters.command(["resolution", f"resolution@{BOT_USERNAME}"]))
     async def changer(app, message):
@@ -109,7 +118,7 @@ if __name__ == "__main__" :
             resolution.insert(0, f"{r}")
             await message.reply_text(OUT)
         else:
-            await message.reply_text("Error")
+            await message.reply_text("Admin Only 🔒")
 
             
                
@@ -121,7 +130,7 @@ if __name__ == "__main__" :
             preset.insert(0, f"{pop}")
             await message.reply_text(OUT)
         else:
-            await message.reply_text("Error")
+            await message.reply_text("Admin Only 🔒")
 
             
     @app.on_message(filters.incoming & filters.command(["codec", f"codec@{BOT_USERNAME}"]))
@@ -132,7 +141,7 @@ if __name__ == "__main__" :
             codec.insert(0, f"{col}")
             await message.reply_text(OUT)
         else:
-            await message.reply_text("Error")
+            await message.reply_text("Admin Only 🔒")
              
     @app.on_message(filters.incoming & filters.command(["audio", f"audio@{BOT_USERNAME}"]))
     async def changea(app, message):
@@ -142,7 +151,7 @@ if __name__ == "__main__" :
             audio_b.insert(0, f"{aud}")
             await message.reply_text(OUT)
         else:
-            await message.reply_text("Error")
+            await message.reply_text("Admin Only 🔒")
             
         
     @app.on_message(filters.incoming & filters.command(["compress", f"compress@{BOT_USERNAME}"]))
