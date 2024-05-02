@@ -36,7 +36,7 @@ from pyrogram.errors.exceptions.bad_request_400 import UserNotParticipant, Usern
 #from bot.helper_funcs.utils import(
 #  delete_downloads
 #)
-os.system("wget https://telegra.ph//file/75829e2b9104ff8fb23c1.jpg -O thumb.jpg")
+os.system("wget https://telegra.ph//file/11202ed9c4e9a7102034d.jpg -O thumb.jpg")
 
 #LOGS_CHANNEL = -1001283278354
 CURRENT_PROCESSES = {}
@@ -84,6 +84,7 @@ async def incoming_start_message_f(bot, update):
     await bot.send_message(
         chat_id=update.chat.id,
         text=Localisation.START_TEXT,
+        parse_mode=enums.ParseMode.MARKDOWN
         reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -453,4 +454,4 @@ async def incoming_cancel_message_f(bot, update):
       chat_id=update.chat.id,
       text="No active compression exists",
       reply_to_message_id=update.id
-)
+    )
